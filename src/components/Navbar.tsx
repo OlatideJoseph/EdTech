@@ -22,19 +22,13 @@ export default function Navbar() {
           transition={{ delay: 0.5, duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
         >
           <Link href={'/'} className="flex gap-4 items-center">
-            <div>
-              <Image
-                src="https://dummyimage.com/100x100/1c1cff/ffffff.jpg"
-                className="w-12 h-12 rounded-full"
-                width={100}
-                height={100}
-                alt=""
-              />
-            </div>
-            <div className="flex flex-col font-bold text-indigo-700 italic">
-              <span>Starters</span>
-              <span>Ed-Management</span>
-            </div>
+            <Image
+              src="/logo.png"
+              alt="logo"
+              height={100}
+              width={300}
+              className="h-12 w-48"
+            />
           </Link>
         </motion.div>
 
@@ -106,19 +100,13 @@ export default function Navbar() {
         <div className="block md:hidden bg-white h-screen fixed top-0 z-40 w-full">
           <div className="w-11/12 mx-auto flex justify-between items-center py-3 border-b">
             <Link href={'/'} className="flex gap-4 items-center">
-              <div>
-                <Image
-                  src="https://dummyimage.com/100x100/1c1cff/ffffff.jpg"
-                  className="w-12 h-12 rounded-full"
-                  width={100}
-                  height={100}
-                  alt=""
-                />
-              </div>
-              <div className="flex flex-col font-bold text-indigo-700 italic">
-                <span>Starters</span>
-                <span>Ed-Management</span>
-              </div>
+              <Image
+                src="/logo.png"
+                alt="logo"
+                height={100}
+                width={300}
+                className="h-12 w-48"
+              />
             </Link>
 
             <button
