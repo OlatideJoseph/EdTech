@@ -2,8 +2,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { MouseEvent } from 'react';
 
-export default function Hero() {
+interface Props {
+  toggleModal: () => void;
+}
+
+const Hero: React.FC<Props> = ({ toggleModal }) => {
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    toggleModal();
+  };
+
   return (
     <div className="w-full pt-32 md:pt-20 overflow-hidden">
       <div className="w-full flex flex-col md:flex-row h-screen justify-between gap-5 md:gap-0">
@@ -31,12 +41,12 @@ export default function Hero() {
           </p>
 
           <div>
-            <Link
-              href={'#'}
+            <button
+              onClick={handleClick}
               className="bg-[#4221B0] rounded-md text-white py-2 px-6"
             >
               Get Started
-            </Link>
+            </button>
           </div>
         </motion.div>
         <motion.div
@@ -114,4 +124,6 @@ export default function Hero() {
       </div>
     </div>
   );
-}
+};
+
+export default Hero;

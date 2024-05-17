@@ -1,12 +1,17 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-// import searchIcon from '@/public/';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Login from './SetupFlow/Login';
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(prevIsModalOpen => !prevIsModalOpen);
+  };
 
   const toggleMenu = () => {
     setOpen(prevOpen => !prevOpen);
@@ -68,7 +73,10 @@ export default function Navbar() {
               className="h-4 w-4"
             />
           </button>
-          <button className="py-2 px-6 bg-[#4221B0] text-white rounded-md">
+          <button
+            onClick={toggleModal}
+            className="py-2 px-6 bg-[#4221B0] text-white rounded-md"
+          >
             Register
           </button>
         </motion.div>
@@ -146,16 +154,16 @@ export default function Navbar() {
             >
               Contact Us
             </Link>
-            <Link
-              href={'#'}
-              onClick={toggleMenu}
+            <button
+              onClick={toggleModal}
               className="bg-[#4221B0] text-white rounded-md mt-6 py-2 w-full flex items-center text-center justify-center duration-700"
             >
               Register
-            </Link>
+            </button>
           </div>
         </div>
       )}
+      {isModalOpen && <Login toggleModal={toggleModal} />}
     </header>
   );
 }
